@@ -38,4 +38,8 @@ public interface UserMapper {
             + "</script>")
     List<User> findByScript(Searchable searchable);
 
+    @Select("SELECT count(*) FROM users")
+    int count();
+
+
 }
