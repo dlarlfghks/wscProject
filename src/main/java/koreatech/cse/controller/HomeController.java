@@ -30,7 +30,7 @@ public class HomeController {
         model.addAttribute("textFromController", env);
         return "hello";
     }
-
+    //nicetest
     //testtest
     @RequestMapping("/requestParamTest")
     public String requestParamTest(@RequestParam(name = "a", required=false, defaultValue = "0") int a,
