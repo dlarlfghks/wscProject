@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://relaxng.org/ns/structure/1.0" datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes">
+    <start>
+        <element name="xs:schema">
+            <attribute name="attributeFormDefault">
+                <data type="NCName"/>
+            </attribute>
+            <attribute name="elementFormDefault">
+                <data type="NCName"/>
+            </attribute>
+            <ref name="element"/>
+            <oneOrMore>
+                <element name="xs:complexType">
+                    <attribute name="name">
+                        <data type="NCName"/>
+                    </attribute>
+                    <element name="xs:sequence">
+                        <oneOrMore>
+                            <ref name="element"/>
+                        </oneOrMore>
+                    </element>
+                </element>
+            </oneOrMore>
+        </element>
+    </start>
+    <define name="element">
+        <element name="xs:element">
+            <optional>
+                <attribute name="maxOccurs">
+                    <data type="NCName"/>
+                </attribute>
+            </optional>
+            <optional>
+                <attribute name="minOccurs">
+                    <data type="integer"/>
+                </attribute>
+            </optional>
+            <attribute name="name">
+                <data type="NCName"/>
+            </attribute>
+            <optional>
+                <attribute name="type">
+                    <data type="NMTOKEN"/>
+                </attribute>
+            </optional>
+            <optional>
+                <element name="xs:simpleType">
+                    <element name="xs:restriction">
+                        <attribute name="base">
+                            <data type="NMTOKEN"/>
+                        </attribute>
+                        <oneOrMore>
+                            <element name="xs:enumeration">
+                                <attribute name="value">
+                                    <data type="anyURI"/>
+                                </attribute>
+                            </element>
+                        </oneOrMore>
+                    </element>
+                </element>
+            </optional>
+        </element>
+    </define>
+</grammar>

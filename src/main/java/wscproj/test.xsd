@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="result" type="resultType"/>
+  <xs:complexType name="imageType">
+    <xs:sequence>
+      <xs:element name="fileNo">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="2"/>
+            <xs:enumeration value="3"/>
+            <xs:enumeration value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="fileName">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="태백산_2"/>
+            <xs:enumeration value="태백산_3"/>
+            <xs:enumeration value="태백산_1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="filePath">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="http://www.forest.go.kr/images/data/down/mountain/20000638_2.jpg"/>
+            <xs:enumeration value="http://www.forest.go.kr/images/data/down/mountain/20000638_3.jpg"/>
+            <xs:enumeration value="http://www.forest.go.kr/images/data/down/mountain/20000638_1.jpg"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="mntInfoType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="mntiListNo"/>
+      <xs:element type="xs:string" name="mntiTop"/>
+      <xs:element type="xs:string" name="mntiName"/>
+      <xs:element type="xs:string" name="mntiSname"/>
+      <xs:element type="xs:string" name="mntiAdd"/>
+      <xs:element type="xs:string" name="mntiHigh"/>
+      <xs:element type="xs:string" name="mntiAdmin"/>
+      <xs:element type="xs:string" name="mntiAdminNum"/>
+      <xs:element type="xs:string" name="mntiSummary"/>
+      <xs:element type="xs:string" name="mntiDetails"/>
+      <xs:element type="imageType" name="image" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="resultType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="key"/>
+      <xs:element type="xs:string" name="totalCnt"/>
+      <xs:element type="xs:string" name="pageUnit"/>
+      <xs:element type="xs:string" name="pageIndex"/>
+      <xs:element type="xs:string" name="searchWrd"/>
+      <xs:element type="mntInfoType" name="mntInfo"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
