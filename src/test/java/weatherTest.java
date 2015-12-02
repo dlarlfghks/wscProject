@@ -37,7 +37,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
                 "file:src/main/resources/common/mybatis.xml"}
 )
 public class weatherTest {
-    @Autowired
+      @Autowired
     private WebApplicationContext wac;
     @Value("${env.text}")
     private String envText;
