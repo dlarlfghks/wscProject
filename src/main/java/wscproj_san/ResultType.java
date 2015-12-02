@@ -1,5 +1,5 @@
 
-package wscproj;
+package wscproj_san;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 
@@ -25,9 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="totalCnt" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="pageUnit" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *         &lt;element name="pageIndex" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="searchCnm" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="searchNm" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         &lt;element name="gdTrailInfo" type="{}gdTrailInfoType" maxOccurs="unbounded" minOccurs="0"/>
+ *         &lt;element name="searchWrd" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="mntInfo" type="{}mntInfoType" maxOccurs="unbounded" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -42,9 +41,8 @@ import javax.xml.bind.annotation.XmlType;
     "totalCnt",
     "pageUnit",
     "pageIndex",
-    "searchCnm",
-    "searchNm",
-    "gdTrailInfo"
+    "searchWrd",
+    "mntInfo"
 })
 public class ResultType {
 
@@ -57,11 +55,9 @@ public class ResultType {
     @XmlElement(required = true)
     protected String pageIndex;
     @XmlElement(required = true)
-    protected String searchCnm;
-    @XmlElement(required = true)
-    protected String searchNm;
+    protected String searchWrd;
     @JacksonXmlElementWrapper(useWrapping=false)
-    protected List<GdTrailInfoType> gdTrailInfo;
+    protected List<MntInfoType> mntInfo;
 
     /**
      * key �Ӽ��� ���� �����ɴϴ�.
@@ -160,85 +156,64 @@ public class ResultType {
     }
 
     /**
-     * searchCnm �Ӽ��� ���� �����ɴϴ�.
+     * searchWrd �Ӽ��� ���� �����ɴϴ�.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getSearchCnm() {
-        return searchCnm;
+    public String getSearchWrd() {
+        return searchWrd;
     }
 
     /**
-     * searchCnm �Ӽ��� ���� �����մϴ�.
+     * searchWrd �Ӽ��� ���� �����մϴ�.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setSearchCnm(String value) {
-        this.searchCnm = value;
+    public void setSearchWrd(String value) {
+        this.searchWrd = value;
     }
 
     /**
-     * searchNm �Ӽ��� ���� �����ɴϴ�.
+     * Gets the value of the mntInfo property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getSearchNm() {
-        return searchNm;
-    }
-
-    /**
-     * searchNm �Ӽ��� ���� �����մϴ�.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setSearchNm(String value) {
-        this.searchNm = value;
-    }
-
-    /**
-     * Gets the value of the gdTrailInfo property.
-     snapshot. Therefore any modification you make to the
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the gdTrailInfo property.
+     * This is why there is not a <CODE>set</CODE> method for the mntInfo property.
      * 
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
-     *    getGdTrailInfo().add(newItem);
+     *    getMntInfo().add(newItem);
      * </pre>
      * 
      * 
      * <p>
      * Objects of the following type(s) are allowed in the list
-     * {@link GdTrailInfoType }
+     * {@link MntInfoType }
      * 
      * 
      */
     @JacksonXmlElementWrapper(useWrapping=false)
-    public List<GdTrailInfoType> getGdTrailInfo() {
-        if (gdTrailInfo == null) {
-            gdTrailInfo = new ArrayList<GdTrailInfoType>();
+    public List<MntInfoType> getMntInfo() {
+        if (mntInfo == null) {
+            mntInfo = new ArrayList<MntInfoType>();
         }
-        return this.gdTrailInfo;
+        return this.mntInfo;
     }
     @JacksonXmlElementWrapper(useWrapping=false)
-    public void setGdTrailInfo(GdTrailInfoType value) {
-        if (gdTrailInfo == null) {
-            gdTrailInfo = new ArrayList<GdTrailInfoType>();
+    public void setMntInfo(MntInfoType value) {
+        if (mntInfo == null) {
+            mntInfo = new ArrayList<MntInfoType>();
         }
-        gdTrailInfo.add(value);
+        mntInfo.add(value);
     }
 
 }

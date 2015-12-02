@@ -36,7 +36,7 @@ public class UserController {
     @ResponseBody
     public String signup(@ModelAttribute User user) {
         userService.signup(user);
-        return "success";
+        return "signup_success";
     }
 
 

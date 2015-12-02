@@ -1,6 +1,8 @@
 
 package wscproj;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
@@ -74,7 +76,7 @@ public class MntInfoType {
     protected String mntiSummary;
     @XmlElement(required = true)
     protected String mntiDetails;
-    protected ImageType image;
+    protected List<ImageType> image;
 
     /**
      * mntiListNo �Ӽ��� ���� �����ɴϴ�.
@@ -338,8 +340,11 @@ public class MntInfoType {
      * 
      * 
      */
-    public ImageType getImage() {
-        return image;
+    @JacksonXmlElementWrapper(useWrapping=false)
+    public List<ImageType> getImage() {
+        if (image == null){
+            image = new ArrayList<ImageType>();
+        }
+        return this.image;
     }
-
 }

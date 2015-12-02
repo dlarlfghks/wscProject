@@ -9,12 +9,20 @@ import java.util.List;
 
 public class User implements UserDetails {
     private int id;
+    private int age;
     private String name;
     private String email;
     private String password;
-    private int age;
-
+    private String keyValue;
     private List<Authority> authorities;
+
+    public String getKeyValue() {
+        return keyValue;
+    }
+
+    public void setKeyValue(String keyValue) {
+        this.keyValue = keyValue;
+    }
 
     public int getId() {
         return id;

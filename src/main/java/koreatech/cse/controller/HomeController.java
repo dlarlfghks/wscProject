@@ -22,13 +22,13 @@ public class HomeController {
     @RequestMapping
     public String home(Model model) {
         model.addAttribute("textFromController", "World");
-        return "hello";
+        return "main";
     }
 
     @RequestMapping("/env")
     public String env(Model model) {
         model.addAttribute("textFromController", env);
-        return "hello";
+        return "main";
     }
     
     @RequestMapping("/requestParamTest")
@@ -38,7 +38,7 @@ public class HomeController {
         System.out.println("a = " + a);
         System.out.println("b = " + b);
         System.out.println("c = " + c);
-        return "hello";
+        return "main";
     }
 
     @RequestMapping("/pathVariableTest/{a}/{b}/{c}")
@@ -46,7 +46,7 @@ public class HomeController {
         System.out.println("a = " + a);
         System.out.println("b = " + b);
         System.out.println("c = " + c);
-        return "hello";
+        return "main";
     }
 
     @RequestMapping("/requestParamMapTest")
@@ -54,7 +54,7 @@ public class HomeController {
         for(Map.Entry entry: map.entrySet()) {
             System.out.println(entry.getKey() + "=" + entry.getValue());
         }
-        return "hello";
+        return "main";
     }
 
     @RequestMapping(value = "/requestMappingGetTest",
@@ -62,25 +62,13 @@ public class HomeController {
             params ="test=true")
     public String requestMappingGetTest(Model model) {
         model.addAttribute("textFromController", "World");
-        return "hello";
+        return "main";
     }
 
     @RequestMapping(value = "/requestMappingPostTest",
             method = RequestMethod.POST)
     @ResponseBody
     public String requestMappingPostTest() {
-        return "hello";
-    }
-
-    @RequestMapping(value = "/daum_book_request", method = RequestMethod.GET)
-    public String daumBookRequest(Model model, @RequestParam(name = "userId") String userId) {
-        model.addAttribute("userId", userId);
-        return "daumBookRequest";
-    }
-
-    @RequestMapping(value = "/facebook_likes_request", method = RequestMethod.GET)
-    public String facebookFriendsRequest(Model model, @RequestParam(name = "userId") String userId) {
-        model.addAttribute("userId", userId);
-        return "facebookLikesRequest";
+        return "main";
     }
 }
