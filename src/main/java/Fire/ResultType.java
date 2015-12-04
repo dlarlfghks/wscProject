@@ -112,7 +112,9 @@ public class ResultType {
     protected String searchStDt;
     @XmlElement(required = true)
     protected String searchEdDt;
-    protected List<ResultType.FrstFireInfo> frstFireInfo;
+
+    @JacksonXmlElementWrapper(useWrapping=false)
+    protected List<FrstFireInfoType> frstFireInfo;
 
     /**
      * Gets the value of the key property.
@@ -280,10 +282,9 @@ public class ResultType {
      * 
      * 
      */
-    @JacksonXmlElementWrapper(useWrapping=false)
-    public List<ResultType.FrstFireInfo> getFrstFireInfo() {
+    public List<FrstFireInfoType> getFrstFireInfo() {
         if (frstFireInfo == null) {
-            frstFireInfo = new ArrayList<ResultType.FrstFireInfo>();
+            frstFireInfo = new ArrayList<FrstFireInfoType>();
         }
         return this.frstFireInfo;
     }
@@ -380,7 +381,6 @@ public class ResultType {
             @XmlElementRef(name = "tempAvg", type = JAXBElement.class, required = false)
         })
         @XmlMixed
-        @JacksonXmlElementWrapper(useWrapping=false)
         protected List<Serializable> content;
 
         /**
@@ -431,7 +431,6 @@ public class ResultType {
          * 
          * 
          */
-        @JacksonXmlElementWrapper(useWrapping=false)
         public List<Serializable> getContent() {
             if (content == null) {
                 content = new ArrayList<Serializable>();
