@@ -1,5 +1,5 @@
 
-package wscproj;
+package wscproj_san;
 
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the wscproj package. 
+ * generated in the wscproj_san package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -27,7 +27,7 @@ public class ObjectFactory {
     private final static QName _Result_QNAME = new QName("", "result");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: wscproj
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: wscproj_san
      * 
      */
     public ObjectFactory() {
@@ -42,19 +42,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GdTrailInfoType }
+     * Create an instance of {@link ImageType }
      * 
      */
-    public GdTrailInfoType createGdTrailInfoType() {
-        return new GdTrailInfoType();
+    public ImageType createImageType() {
+        return new ImageType();
     }
 
     /**
-     * Create an instance of {@link TrailPlusType }
+     * Create an instance of {@link MntInfoType }
      * 
      */
-    public TrailPlusType createTrailPlusType() {
-        return new TrailPlusType();
+    public MntInfoType createMntInfoType() {
+        return new MntInfoType();
     }
 
     /**
