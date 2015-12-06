@@ -18,5 +18,9 @@
     <a href="/user/signout">로그아웃</a>
 </sec:authorize>
 
+<sec:authorize access="isAnonymous()">
+    <a href="/san_search">산검색</a>
+</sec:authorize>
+
 <br/><br/><br/>
 <hr/>
