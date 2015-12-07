@@ -43,7 +43,7 @@ public class HomeController {
     }
 
     @Transactional
-    @RequestMapping(value="/searchsanname/{id}", method=RequestMethod.GET, produces = "application/json; charset=utf8")
+    @RequestMapping(value="/search_json/{id}", method=RequestMethod.GET, produces = "application/json; charset=utf8")
     public ResponseEntity<San> temperature(@PathVariable("id") int id) {
         San san = sanService.Sansearch(id);
         if (san == null) {
@@ -52,19 +52,12 @@ public class HomeController {
         return new ResponseEntity<San>(san, HttpStatus.OK);
     }
 
-    @RequestMapping(value="/san_search/{id}", method = RequestMethod.GET)
+    @RequestMapping(value="/search_xml/{id}", method = RequestMethod.GET, produces = "application/xml; charset=utf8")
     @ResponseBody
     public San result(@PathVariable int id) {
         return sanService.Sansearch(id);
     }
 
-    /*
-    @RequestMapping(value = "/searchsanname/{id}", method = RequestMethod.GET)
-    public String searchsanname(@PathVariable Model model, int a) {
-        model.addAttribute("sanService", sanService.Sansearch(a));
-        return "searchsanname";
-    }
-*/
     @ResponseBody
     public String requestMappingPostTest() {
         return "main";

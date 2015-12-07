@@ -18,6 +18,22 @@ public class San {
     private String ts;
     private String tm;
 
+    public void init() {
+        mntname = "";
+        mntSname = "";
+        mntHigh = "";
+        mntAdmin = "";
+        mntAdminNum = "";
+        mntSummary = "";
+        mntDetails = "";
+        mntTransport = "";
+        mntTourismInf = "";
+        mntEtcCourse = "";
+        pa = "";
+        ts = "";
+        tm = "";
+    }
+
     public String getMntEtcCourse() {
         return mntEtcCourse;
     }
