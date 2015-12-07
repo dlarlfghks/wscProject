@@ -2,49 +2,28 @@ package koreatech.cse.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
-import wscproj.GdTrailInfoType;
-import wscproj.MetadataType;
-import wscproj.ResultType;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.nio.CharBuffer;
 import java.util.Map;
 
 @Controller
 @RequestMapping("/")
 public class HomeController {
-    private String sanUrl = "http://www.forest.go.kr/newkfsweb/kfi/kfs/openapi/mntInfoOpenAPI.do";
-    private String weatherUrl = "http://know.nifos.go.kr/openapi/mtweather/mountListSearch.do";
-    private String famosanUrl = "http://www.forest.go.kr/newkfsweb/kfi/kfs/openapi/gdTrailInfoOpenAPI.do";
-    private String sanKey = "072412711628484ba8148db1fe76cb7d";
-    private String weatherKey = "5616322344776229063796515611583064046076";
-    private String famosanKey = "e6af29c8e4b7463baeb484d62388f2bf";
-
-    private int sanpageIndex = 1;
-    private int sanpageUnit = 5;
-    String sanname = "";
 
     @Value("${env.text}")
     private String env;
 
     @ModelAttribute("name")
     private String getName() {
-        return "";
+        return "IamHomeControllerModelAttribute";
     }
 
     @RequestMapping
     public String home(Model model) {
-        model.addAttribute("textFromController");
-        String san_name = new String();
-        model.addAttribute("san_name", san_name);
+        model.addAttribute("textFromController", "World");
         return "main";
     }
 
