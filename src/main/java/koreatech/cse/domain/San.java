@@ -13,10 +13,41 @@ public class San {
     private String mntDetails;
     private String mntTransport;
     private String mntTourismInf;
+    private String mntCourse;
     private String mntEtcCourse;
     private String pa;
     private String ts;
     private String tm;
+
+    public String getMntCourse() {
+        return mntCourse;
+    }
+
+    public void setMntCourse(String mntCourse) {
+        this.mntCourse = mntCourse;
+    }
+
+    @Override
+    public String toString() {
+        return "San{" +
+                "mntname='" + mntname + '\'' +
+                ", mntSname='" + mntSname + '\'' +
+                ", mntHigh='" + mntHigh + '\'' +
+                ", mntAdmin='" + mntAdmin + '\'' +
+                ", mntAdminNum='" + mntAdminNum + '\'' +
+                ", mntSummary='" + mntSummary + '\'' +
+                ", mntDetails='" + mntDetails + '\'' +
+                ", mntTransport='" + mntTransport + '\'' +
+                ", mntTourismInf='" + mntTourismInf + '\'' +
+                ", mntCourse='" + mntCourse + '\'' +
+                ", mntEtcCourse='" + mntEtcCourse + '\'' +
+                ", pa='" + pa + '\'' +
+                ", ts='" + ts + '\'' +
+                ", tm='" + tm + '\'' +
+                '}';
+    }
+
+
 
     public void init() {
         mntname = "";
@@ -28,6 +59,7 @@ public class San {
         mntDetails = "";
         mntTransport = "";
         mntTourismInf = "";
+        mntCourse = "";
         mntEtcCourse = "";
         pa = "";
         ts = "";
@@ -140,22 +172,4 @@ public class San {
         this.ts = ts;
     }
 
-    @Override
-    public String toString() {
-        return "San{" +
-                "mntname='" + mntname + '\'' +
-                ", mntSname='" + mntSname + '\'' +
-                ", mntHigh='" + mntHigh + '\'' +
-                ", mntAdmin='" + mntAdmin + '\'' +
-                ", mntAdminNum='" + mntAdminNum + '\'' +
-                ", mntSummary='" + mntSummary + '\'' +
-                ", mntDetails='" + mntDetails + '\'' +
-                ", mntTransport='" + mntTransport + '\'' +
-                ", mntTourismInf='" + mntTourismInf + '\'' +
-                ", mntEtcCourse='" + mntEtcCourse + '\'' +
-                ", pa='" + pa + '\'' +
-                ", ts='" + ts + '\'' +
-                ", tm='" + tm + '\'' +
-                '}';
-    }
 }

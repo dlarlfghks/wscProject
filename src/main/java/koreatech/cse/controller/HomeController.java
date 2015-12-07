@@ -21,24 +21,11 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-    @Value("${env.text}")
-    private String env;
+
     private static SanService sanService = new SanService();
 
-    @ModelAttribute("name")
-    private String getName() {
-        return "IamHomeControllerModelAttribute";
-    }
-
     @RequestMapping
-    public String home(Model model) {
-        model.addAttribute("textFromController", "World");
-        return "main";
-    }
-
-    @RequestMapping("/env")
-    public String env(Model model) {
-        model.addAttribute("textFromController", env);
+    public String home() {
         return "main";
     }
 
@@ -58,8 +45,4 @@ public class HomeController {
         return sanService.Sansearch(id);
     }
 
-    @ResponseBody
-    public String requestMappingPostTest() {
-        return "main";
-    }
 }
