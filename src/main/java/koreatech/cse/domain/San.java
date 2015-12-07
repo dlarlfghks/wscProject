@@ -11,9 +11,38 @@ public class San {
     private String mntAdminNum;
     private String mntSummary;
     private String mntDetails;
+    private String mntTransport;
+    private String mntTourismInf;
+    private String mntEtcCourse;
     private String pa;
     private String ts;
     private String tm;
+
+    public String getMntEtcCourse() {
+        return mntEtcCourse;
+    }
+
+    public void setMntEtcCourse(String mntEtcCourse) {
+        this.mntEtcCourse = mntEtcCourse;
+    }
+
+    public String getMntTransport() {
+        return mntTransport;
+    }
+
+    public void setMntTransport(String mntTransport) {
+        this.mntTransport = mntTransport;
+    }
+
+    public String getMntTourismInf() {
+        return mntTourismInf;
+    }
+
+    public void setMntTourismInf(String mntTourismInf) {
+        this.mntTourismInf = mntTourismInf;
+    }
+
+
 
     public String getTm() {
         return tm;
@@ -105,6 +134,9 @@ public class San {
                 ", mntAdminNum='" + mntAdminNum + '\'' +
                 ", mntSummary='" + mntSummary + '\'' +
                 ", mntDetails='" + mntDetails + '\'' +
+                ", mntTransport='" + mntTransport + '\'' +
+                ", mntTourismInf='" + mntTourismInf + '\'' +
+                ", mntEtcCourse='" + mntEtcCourse + '\'' +
                 ", pa='" + pa + '\'' +
                 ", ts='" + ts + '\'' +
                 ", tm='" + tm + '\'' +

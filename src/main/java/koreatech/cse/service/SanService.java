@@ -25,7 +25,7 @@ public class SanService {
 
     RestTemplate restTemplate = new RestTemplate();
 
-    public String Sansearch(int id) {
+    public San Sansearch(int id) {
         try {
             UriComponentsBuilder sanbuilder = UriComponentsBuilder.fromHttpUrl(sanUrl)
                     .queryParam("key", sanKey)
@@ -57,7 +57,7 @@ public class SanService {
             if(resultType.getTotalCnt().equals('0') || metadataType.getResultSummary().getTotalCnt().equals('0')){
                 San san = new San();
                 san = null;
-                return san.toString();
+                return san;
             }
 
             San san = new San();
@@ -68,15 +68,18 @@ public class SanService {
             san.setMntHigh(resultType.getMntInfo().get(0).getMntiHigh());
             san.setMntSname(resultType.getMntInfo().get(0).getMntiSname());
             san.setMntSummary(resultType.getMntInfo().get(0).getMntiSummary());
+            san.setMntTransport(resultType_famo.getGdTrailInfo().get(0).getTransport());
+            san.setMntTourismInf(resultType_famo.getGdTrailInfo().get(0).getTourismInf());
+            san.setMntEtcCourse(resultType_famo.getGdTrailInfo().get(0).getEtcCourse());
             san.setPa(metadataType.getOutputData().getItems().getPa());
             san.setTm(metadataType.getInputData().getTm());
             san.setTs(metadataType.getOutputData().getItems().getTs());
-            return san.toString();
+            return san;
         } catch (HttpClientErrorException e) {
             System.out.println("Exception : " + e.getStatusCode() + ": " + e.getStatusText());
             San san = new San();
             san = null;
-            return san.toString();
+            return san;
         }
     }
 
@@ -118,6 +121,157 @@ public class SanService {
                 return "칠보산";
             case 1947:
                 return "운악산";
+            case 1948:
+                return "바래기산";
+            case 1949:
+                return "마감산";
+            case 2891:
+                return "한석산";
+            case 2892:
+                return "가득봉";
+            case 2893:
+                return "불발령";
+            case 2894:
+                return "감투봉";
+            case 2895:
+                return "전후재";
+            case 2896:
+                return "사기막";
+            case 2897:
+                return "제왕산" ;
+            case 2898:
+                return "만덕봉";
+            case 2899: return "선자령";
+            case 2900: return "가리왕산";
+            case 2901: return "봉화치" ;
+            case 2902: return "갈고개" ;
+            case 2903: return "덕항산" ;
+            case 2904: return "함백산" ;
+            case 2905: return "사금산" ;
+            case 2906: return "배향산" ;
+            case 2907: return "사자산" ;
+            case 2908: return "남병산" ;
+            case 2909: return "대학산" ;
+            case 2911: return "가리산" ;
+            case 3891: return "장석산" ;
+            case 3892: return "천등산" ;
+            case 3893: return "원통산" ;
+            case 3894: return "박달산" ;
+            case 3895: return "남산" ;
+            case 3896: return "도솔봉" ;
+            case 3897: return "팔음산" ;
+            case 3898: return "금단산" ;
+            case 3899: return "탑산" ;
+            case 3900: return "삼봉산" ;
+            case 6912: return "농암산" ;
+            case 6913: return "고산봉" ;
+            case 6914: return "병풍산" ;
+            case 6915: return "고동산" ;
+            case 6916: return "용암산" ;
+            case 8891: return "형제봉" ;
+            case 8892: return "묵계제" ;
+            case 8893: return "왕등재" ;
+            case 8894: return "법화산" ;
+            case 8895: return "향로봉" ;
+            case 8896: return "단지봉" ;
+            case 8897: return "대기봉" ;
+            case 8901: return "천주산" ;
+            case 8902: return "실봉산" ;
+            case 8903: return "둔철산" ;
+            case 8904: return "한우산" ;
+            case 8905: return "불모산" ;
+            case 8911: return "천성산" ;
+            case 8913: return "대운산" ;
+            case 8916: return "월아산" ;
+            case 7891: return "청옥산" ;
+            case 7892: return "큰재" ;
+            case 7893: return "통고산" ;
+            case 7894: return "가재미재" ;
+            case 7895: return "아구산" ;
+            case 7896: return "장군봉" ;
+            case 7897: return "함박산" ;
+            case 7898: return "명동산" ;
+            case 7899: return "용바위" ;
+            case 7900: return "감연산" ;
+            case 7901: return "독경산" ;
+            case 7902: return "삿갓봉" ;
+            case 7903: return "내연산" ;
+            case 7904: return "조항산" ;
+            case 7905: return "주월산" ;
+            case 7913: return "박석산" ;
+            case 7914: return "삼성산" ;
+            case 7915: return "발백산" ;
+            case 7916: return "비봉산" ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             default:
                 return null;
         }

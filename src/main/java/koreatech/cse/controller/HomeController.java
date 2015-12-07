@@ -1,8 +1,12 @@
 package koreatech.cse.controller;
 
+import koreatech.cse.domain.San;
 import koreatech.cse.service.SanService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.HttpClientErrorException;
@@ -19,6 +23,7 @@ import java.util.Map;
 public class HomeController {
     @Value("${env.text}")
     private String env;
+    private static SanService sanService = new SanService();
 
     @ModelAttribute("name")
     private String getName() {
@@ -37,19 +42,29 @@ public class HomeController {
         return "main";
     }
 
-    @RequestMapping(value="/san_search")
+    @Transactional
+    @RequestMapping(value="/searchsanname/{id}", method=RequestMethod.GET, produces = "application/json; charset=utf8")
+    public ResponseEntity<San> temperature(@PathVariable("id") int id) {
+        San san = sanService.Sansearch(id);
+        if (san == null) {
+            return new ResponseEntity<San>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<San>(san, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/san_search/{id}", method = RequestMethod.GET)
     @ResponseBody
-    public String result(@ModelAttribute String san_name) {
-        return "san_search";
+    public San result(@PathVariable int id) {
+        return sanService.Sansearch(id);
     }
 
-    @RequestMapping("/searchsanname/{a}")
-    public String pathVariableTest(Model model, @PathVariable int a) {
-        SanService sanService = new SanService();
+    /*
+    @RequestMapping(value = "/searchsanname/{id}", method = RequestMethod.GET)
+    public String searchsanname(@PathVariable Model model, int a) {
         model.addAttribute("sanService", sanService.Sansearch(a));
-        return "result";
+        return "searchsanname";
     }
-
+*/
     @ResponseBody
     public String requestMappingPostTest() {
         return "main";
