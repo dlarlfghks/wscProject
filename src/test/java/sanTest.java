@@ -14,7 +14,6 @@ import java.util.List;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration({"file:src/main/resources/common/services.xml",
-"file:src/main/resources/common/security.xml",
 "file:src/main/resources/common/mybatis.xml"})
 
 public class sanTest {

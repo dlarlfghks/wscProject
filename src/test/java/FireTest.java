@@ -19,7 +19,6 @@ import java.util.Calendar;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration( {"file:src/main/resources/common/services.xml",
-        "file:src/main/resources/common/security.xml",
         "file:src/main/resources/common/mybatis.xml"} )
 public class FireTest {
     @Autowired
